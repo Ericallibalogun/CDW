@@ -1,0 +1,6 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" rx="8" fill="#f3f4f6"/>
+  <circle cx="60" cy="40" r="25" stroke="#6b7280" stroke-width="2" fill="none"/>
+  <path d="M45 40 L55 50 L75 30" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="65" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">BRAND</text>
+</svg>
