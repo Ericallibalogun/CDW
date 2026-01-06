@@ -11,21 +11,21 @@ const socialLinks = [
 		id: 1,
 		href: "https://facebook.com",
 		icon: (
-			<SiMeta className="w-5 h-5 text-brand-gray-400 hover:text-brand-blue-600 transition-colors duration-300" />
+			<SiMeta className="w-5 h-5 text-brand-navy-400 hover:text-brand-navy-600 transition-colors duration-300" />
 		),
 	},
 	{
 		id: 2,
 		href: "https://twitter.com",
 		icon: (
-			<SiX className="w-5 h-5 text-brand-gray-400 hover:text-brand-blue-600 transition-colors duration-300" />
+			<SiX className="w-5 h-5 text-brand-navy-400 hover:text-brand-navy-600 transition-colors duration-300" />
 		),
 	},
 	{
 		id: 3,
 		href: "https://instagram.com",
 		icon: (
-			<SiInstagram className="w-5 h-5 text-brand-gray-400 hover:text-brand-blue-600 transition-colors duration-300" />
+			<SiInstagram className="w-5 h-5 text-brand-navy-400 hover:text-brand-navy-600 transition-colors duration-300" />
 		),
 	},
 ];
@@ -64,11 +64,11 @@ export const PublicFooter = () => {
 	return (
 		<footer className="relative overflow-hidden">
 			{/* Modern Background */}
-			<div className="absolute inset-0 bg-gradient-to-t from-brand-gray-900 via-brand-gray-800 to-brand-gray-700"></div>
-			<div className="absolute inset-0 bg-gradient-to-br from-brand-blue-900/20 via-transparent to-brand-red-900/20"></div>
+			<div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-brand-navy-800 to-brand-navy-700"></div>
+			<div className="absolute inset-0 bg-gradient-to-br from-brand-navy-900/40 via-transparent to-brand-red-900/20"></div>
 			
 			{/* Floating Elements */}
-			<div className="absolute top-20 left-20 w-40 h-40 bg-brand-blue-400/10 rounded-full blur-2xl floating-element"></div>
+			<div className="absolute top-20 left-20 w-40 h-40 bg-brand-navy-400/10 rounded-full blur-2xl floating-element"></div>
 			<div className="absolute bottom-20 right-20 w-32 h-32 bg-brand-red-400/10 rounded-full blur-2xl floating-element" style={{animationDelay: '2s'}}></div>
 			
 			<div className="relative z-10">
@@ -92,8 +92,8 @@ export const PublicFooter = () => {
 									Where luxury meets excellence.
 								</p>
 								<div className="flex items-center mb-6">
-									<Crown className="w-5 h-5 text-brand-blue-400 mr-3" />
-									<span className="text-brand-blue-300 font-semibold">Premium Automotive Curation</span>
+									<Crown className="w-5 h-5 text-brand-navy-400 mr-3" />
+									<span className="text-brand-navy-300 font-semibold">Premium Automotive Curation</span>
 								</div>
 								<div className="flex space-x-4">
 									{socialLinks.map((link) => (
@@ -113,7 +113,7 @@ export const PublicFooter = () => {
 						<div>
 							<div className="premium-card p-6">
 								<h3 className="text-xl font-bold text-white mb-6 flex items-center">
-									<div className="w-1 h-6 bg-gradient-to-b from-brand-blue-400 to-brand-blue-500 rounded-full mr-3"></div>
+									<div className="w-1 h-6 bg-gradient-to-b from-brand-navy-400 to-brand-navy-500 rounded-full mr-3"></div>
 									Quick Links
 								</h3>
 								<ul className="space-y-4">
@@ -121,9 +121,9 @@ export const PublicFooter = () => {
 										<li key={index}>
 											<Link
 												href={link.href}
-												className="text-white/70 hover:text-brand-blue-300 transition-colors duration-300 flex items-center group"
+												className="text-white/70 hover:text-brand-navy-300 transition-colors duration-300 flex items-center group"
 											>
-												<div className="w-2 h-2 bg-white/30 rounded-full mr-4 group-hover:bg-brand-blue-400 transition-colors duration-300"></div>
+												<div className="w-2 h-2 bg-white/30 rounded-full mr-4 group-hover:bg-brand-navy-400 transition-colors duration-300"></div>
 												{link.label}
 											</Link>
 										</li>
@@ -136,7 +136,7 @@ export const PublicFooter = () => {
 						<div>
 							<div className="premium-card p-6">
 								<h3 className="text-xl font-bold text-white mb-6 flex items-center">
-									<div className="w-1 h-6 bg-gradient-to-b from-brand-blue-400 to-brand-blue-500 rounded-full mr-3"></div>
+									<div className="w-1 h-6 bg-gradient-to-b from-brand-navy-400 to-brand-navy-500 rounded-full mr-3"></div>
 									Contact Info
 								</h3>
 								<ul className="space-y-5">
@@ -145,14 +145,14 @@ export const PublicFooter = () => {
 											{item.href !== "#" ? (
 												<Link
 													href={item.href}
-													className="text-white/70 hover:text-brand-blue-300 transition-colors duration-300 flex items-start group"
+													className="text-white/70 hover:text-brand-navy-300 transition-colors duration-300 flex items-start group"
 												>
-													<item.icon className="w-5 h-5 text-brand-blue-400 mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+													<item.icon className="w-5 h-5 text-brand-navy-400 mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
 													<span className="text-sm leading-relaxed">{item.label}</span>
 												</Link>
 											) : (
 												<div className="text-white/70 flex items-start">
-													<item.icon className="w-5 h-5 text-brand-blue-400 mr-4 mt-0.5 flex-shrink-0" />
+													<item.icon className="w-5 h-5 text-brand-navy-400 mr-4 mt-0.5 flex-shrink-0" />
 													<span className="text-sm leading-relaxed">{item.label}</span>
 												</div>
 											)}
@@ -176,7 +176,7 @@ export const PublicFooter = () => {
 					<div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
 						<div className="text-center">
 							<div className="premium-card p-8 mb-6">
-								<h4 className="text-lg font-bold text-brand-blue-300 mb-3">Company Info</h4>
+								<h4 className="text-lg font-bold text-brand-navy-300 mb-3">Company Info</h4>
 								<p className="text-white/60 text-sm mb-2">Company No. 123456789 | VAT No. GB123456789</p>
 								<p className="text-white/40 text-xs">
 									Majestic Motors is not authorised and not regulated by the Financial Conduct Authority
@@ -187,13 +187,13 @@ export const PublicFooter = () => {
 									© {new Date().getFullYear()} Majestic Motors. All rights reserved.
 								</p>
 								<div className="flex space-x-8 mt-4 sm:mt-0">
-									<Link href="#" className="text-white/60 hover:text-brand-blue-300 text-sm transition-colors duration-300">
+									<Link href="#" className="text-white/60 hover:text-brand-navy-300 text-sm transition-colors duration-300">
 										Privacy Policy
 									</Link>
-									<Link href="#" className="text-white/60 hover:text-brand-blue-300 text-sm transition-colors duration-300">
+									<Link href="#" className="text-white/60 hover:text-brand-navy-300 text-sm transition-colors duration-300">
 										Terms of Service
 									</Link>
-									<Link href="#" className="text-white/60 hover:text-brand-blue-300 text-sm transition-colors duration-300">
+									<Link href="#" className="text-white/60 hover:text-brand-navy-300 text-sm transition-colors duration-300">
 										Cookie Policy
 									</Link>
 								</div>

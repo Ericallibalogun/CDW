@@ -15,82 +15,92 @@ export const PublicHeader = async () => {
 	const session = await auth();
 	const sourceId = await getSourceId();
 	const favourites = await redis.get<Favourites>(sourceId ?? "");
+	
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-20 px-6 glass-header backdrop-blur-xl gap-x-6">
-			<div className="flex items-center flex-1">
+		<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center h-16 px-6 gap-x-8">
+			{/* Logo - Left Side */}
+			<div className="absolute left-6 flex items-center">
 				<Link href={routes.home} className="flex items-center gap-2 floating-element">
 					<Image
-						width={144}
-						height={48}
+						width={120}
+						height={40}
 						alt="logo"
-						className="h-12 w-auto object-contain drop-shadow-lg"
+						className="h-10 w-auto object-contain drop-shadow-lg"
 						src="/mide_logo-removebg-preview.png"
+						priority
+						quality={90}
 					/>
 				</Link>
 			</div>
+			
+			{/* Centered Navigation */}
 			<nav className="hidden md:block">
-				<div className="flex items-center space-x-2">
-					{navLinks.map((link) => (
-						<Link
-							className="group font-heading rounded-xl px-6 py-3 text-sm text-brand-gray-700 hover:text-brand-blue-600 hover:bg-white/20 backdrop-blur-sm duration-300 transition-all ease-in-out font-semibold uppercase tracking-wide border border-transparent hover:border-white/30"
-							href={link.href}
-							key={link.id}
-						>
-							{link.label}
-						</Link>
-					))}
-				</div>
-			</nav>
-			{session ? (
-				<div className="items-center md:flex gap-x-6 hidden">
-					<Link 
-						href={routes.admin.dashboard} 
-						className="text-brand-gray-700 hover:text-brand-blue-600 font-semibold transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm"
+				{navLinks.map((link) => (
+					<Link
+						className="font-heading px-6 py-2 text-sm text-white hover:text-white/80 duration-300 transition-all ease-in-out font-semibold uppercase tracking-wide rounded-lg drop-shadow-lg mx-2"
+						href={link.href}
+						key={link.id}
 					>
-						Backoffice
+						{link.label}
 					</Link>
-					<SignOutForm />
-				</div>
-			) : (
-				<Button
-					asChild
-					variant="ghost"
-					size="icon"
-					className="relative inline-block group hover:bg-brand-red-50/20 backdrop-blur-sm rounded-full"
-				>
-					<Link href={routes.favourites}>
-						<div className="flex group-hover:bg-brand-red-500 transition-all ease-in-out items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 group-hover:border-brand-red-400">
-							<HeartIcon className="w-6 h-6 text-brand-red-600 group-hover:text-white group-hover:fill-white transition-all duration-300" />
-						</div>
-						<div className="absolute -top-1 -right-1 flex items-center justify-center w-6 h-6 text-white bg-gradient-to-r from-brand-red-500 to-brand-red-600 rounded-full group-hover:from-brand-blue-500 group-hover:to-brand-blue-600 transition-all duration-300 shadow-lg">
-							<span className="text-xs font-bold">
-								{favourites ? favourites.ids.length : 0}
-							</span>
-						</div>
-					</Link>
-				</Button>
-			)}
-			<Sheet>
-				<SheetTrigger asChild>
-					<Button variant="ghost" size="icon" className="md:hidden border-none hover:bg-brand-blue-50/20 backdrop-blur-sm rounded-full">
-						<MenuIcon className="h-6 w-6 text-brand-blue-600" />
-						<SheetTitle className="sr-only">Toggle nav menu</SheetTitle>
+				))}
+			</nav>
+			
+			{/* Right Side Actions */}
+			<div className="absolute right-6 flex items-center gap-4">
+				{session ? (
+					<div className="flex items-center gap-4">
+						<Link 
+							href={routes.admin.dashboard} 
+							className="text-white hover:text-white/80 font-semibold transition-colors duration-200 px-4 py-2 rounded-lg drop-shadow-lg"
+						>
+							Backoffice
+						</Link>
+						<SignOutForm />
+					</div>
+				) : (
+					<Button
+						asChild
+						variant="ghost"
+						size="icon"
+						className="relative inline-block group rounded-full"
+					>
+						<Link href={routes.favourites}>
+							<div className="flex group-hover:bg-brand-red-600 transition-all ease-in-out items-center justify-center w-10 h-10 bg-white/30 rounded-full border border-white/50 group-hover:border-brand-red-400 shadow-lg">
+								<HeartIcon className="w-5 h-5 text-brand-red-600 group-hover:text-white group-hover:fill-white transition-all duration-300" />
+							</div>
+							<div className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-white bg-gradient-to-r from-brand-red-600 to-brand-red-700 rounded-full group-hover:from-brand-navy-600 group-hover:to-brand-navy-700 transition-all duration-300 shadow-lg">
+								<span className="text-xs font-bold">
+									{favourites ? favourites.ids.length : 0}
+								</span>
+							</div>
+						</Link>
 					</Button>
-				</SheetTrigger>
-				<SheetContent side="right" className="w-full max-w-xs p-6 glass-card border-l border-white/20">
-					<nav className="grid gap-3 mt-8">
-						{navLinks.map((link) => (
-							<Link
-								className="flex items-center gap-3 py-4 px-6 text-sm font-medium text-brand-gray-700 hover:text-brand-blue-600 hover:bg-white/10 backdrop-blur-sm rounded-xl transition-all duration-200 border border-transparent hover:border-white/20"
-								href={link.href}
-								key={link.id}
-							>
-								{link.label}
-							</Link>
-						))}
-					</nav>
-				</SheetContent>
-			</Sheet>
+				)}
+				
+				{/* Mobile Menu */}
+				<Sheet>
+					<SheetTrigger asChild>
+						<Button variant="ghost" size="icon" className="md:hidden border-none rounded-full">
+							<MenuIcon className="h-5 w-5 text-white drop-shadow-lg" />
+							<SheetTitle className="sr-only">Toggle nav menu</SheetTitle>
+						</Button>
+					</SheetTrigger>
+					<SheetContent side="right" className="w-full max-w-xs p-6 glass-card border-l border-white/30 bg-brand-navy-900/95 backdrop-blur-xl">
+						<nav className="grid gap-3 mt-8">
+							{navLinks.map((link) => (
+								<Link
+									className="flex items-center gap-3 py-4 px-6 text-sm font-medium text-white hover:text-white hover:bg-white/20 backdrop-blur-sm rounded-xl transition-all duration-200 border border-transparent hover:border-white/30"
+									href={link.href}
+									key={link.id}
+								>
+									{link.label}
+								</Link>
+							))}
+						</nav>
+					</SheetContent>
+				</Sheet>
+			</div>
 		</header>
 	);
 };

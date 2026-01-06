@@ -24,7 +24,7 @@ const SubscribeButton = () => {
 		<Button
 			disabled={pending}
 			type="submit"
-			className="w-full uppercase font-bold bg-gradient-to-r from-brand-blue-500 to-brand-blue-600 hover:from-brand-blue-600 hover:to-brand-blue-700 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+			className="w-full uppercase font-bold bg-gradient-to-r from-brand-navy-600 to-brand-navy-700 hover:from-brand-navy-700 hover:to-brand-navy-800 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
 		>
 			{pending && (
 				<Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden="true" />
@@ -81,7 +81,7 @@ export const NewsletterForm = () => {
 	return (
 		<div className="space-y-6">
 			<h3 className="text-xl font-bold text-white mb-6 flex items-center">
-				<div className="w-1 h-6 bg-gradient-to-b from-brand-blue-400 to-brand-blue-500 rounded-full mr-3"></div>
+				<div className="w-1 h-6 bg-gradient-to-b from-brand-navy-400 to-brand-navy-500 rounded-full mr-3"></div>
 				Subscribe to Updates
 			</h3>
 			<p className="text-white/70 mb-6 font-medium">
@@ -103,7 +103,7 @@ export const NewsletterForm = () => {
 									<FormControl>
 										<Input
 											placeholder="First Name"
-											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm"
+											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-navy-400 focus:ring-brand-navy-400/50 backdrop-blur-sm"
 											{...field}
 										/>
 									</FormControl>
@@ -119,7 +119,7 @@ export const NewsletterForm = () => {
 									<FormControl>
 										<Input
 											placeholder="Last Name"
-											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm"
+											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-navy-400 focus:ring-brand-navy-400/50 backdrop-blur-sm"
 											{...field}
 										/>
 									</FormControl>
@@ -137,7 +137,7 @@ export const NewsletterForm = () => {
 									<Input
 										placeholder="Email Address"
 										type="email"
-										className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm w-full"
+										className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-navy-400 focus:ring-brand-navy-400/50 backdrop-blur-sm w-full"
 										{...field}
 									/>
 								</FormControl>
