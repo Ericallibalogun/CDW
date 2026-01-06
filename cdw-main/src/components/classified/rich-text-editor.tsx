@@ -45,7 +45,7 @@ export const RichTextEditor = (props: TextEditorProps) => {
 		autolink_pattern: /^(https?:\/\/|www\.)(.+)$/i,
 
 		// Configure paste behavior
-		paste_postprocess: (plugin, args) => {
+		paste_postprocess: (plugin: any, args: any) => {
 			const links = args.node.getElementsByTagName("a");
 			for (let i = 0; i < links.length; i++) {
 				links[i].style.color = "#3b82f6";

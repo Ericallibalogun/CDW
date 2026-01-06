@@ -8,8 +8,9 @@ import { v4 as uuidv4 } from "uuid";
 
 export const maxDuration = 300;
 
-export const POST = auth(async (req) => {
-	if (!req.auth) forbidden();
+export async function POST(req: Request) {
+	const session = await auth();
+	if (!session) return forbidden();
 
 	try {
 		const formData = await req.formData();
@@ -71,4 +72,4 @@ export const POST = auth(async (req) => {
 			{ status: 500 },
 		);
 	}
-});
+}

@@ -1,5 +1,8 @@
 import { SettingsPageContent } from '@/components/settings/content';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function SettingsPage() {
 	return (
 		<>
