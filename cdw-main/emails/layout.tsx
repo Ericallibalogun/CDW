@@ -56,7 +56,7 @@ const EmailLayout = ({ children, preview = "" }: EmailLayoutProps) => {
 										>
 											<Img
 												alt="logo"
-												src={`${baseUrl}/static/logo.svg`}
+												src={`${baseUrl}/mide_logo-removebg-preview.png`}
 												className="h-full w-[200px]"
 											/>
 										</Link>
@@ -79,7 +79,7 @@ const EmailLayout = ({ children, preview = "" }: EmailLayoutProps) => {
 									<Column className="flex items-center" align="left">
 										<Img
 											className="w-16 h-16"
-											src={`${baseUrl}/static/logo-mob.svg`}
+											src={`${baseUrl}/mide_logo-removebg-preview.png`}
 										/>
 									</Column>
 

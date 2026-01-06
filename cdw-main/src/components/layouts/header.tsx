@@ -24,7 +24,7 @@ export const PublicHeader = async () => {
 						height={100}
 						alt="logo"
 						className="relative"
-						src="/logo.svg"
+						src="/mide_logo-removebg-preview.png"
 					/>
 				</Link>
 			</div>

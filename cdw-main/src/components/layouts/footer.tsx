@@ -80,7 +80,7 @@ export const PublicFooter = () => {
 									height={100}
 									alt="Majestic Motors Logo"
 									className="h-10 relative"
-									src="/logo.svg"
+									src="/mide_logo-removebg-preview.png"
 								/>
 							</Link>
 							<p className="text-gray-600 mb-6 leading-relaxed">

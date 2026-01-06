@@ -87,7 +87,7 @@ export const AdminSidebar = () => {
 									transition={{ duration: 0.4 }}
 								>
 									<Image
-										src="/logo.svg"
+										src="/mide_logo-removebg-preview.png"
 										fill={true}
 										className="object-contain object-left"
 										alt="Majestic Motors Logo"
@@ -104,7 +104,7 @@ export const AdminSidebar = () => {
 									transition={{ duration: 0.1 }}
 								>
 									<Image
-										src="/logo-mob.svg"
+										src="/mide_logo-removebg-preview.png"
 										fill={true}
 										className="object-contain object-left"
 										alt="Majestic Motors Mobile Logo"
