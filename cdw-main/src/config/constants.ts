@@ -4,7 +4,7 @@ import { routes } from "./routes";
 
 export const imageSources = {
 	classifiedPlaceholder: "/images/hero/AdobeStock_197763326.jpeg",
-	carLinup: "/images/hero/AdobeStock_549957876.jpeg",
+	carLinup: "/images/hero/AdobeStock_197763326.jpeg",
 	featureSection: "/images/hero/AdobeStock_581272875.jpeg",
 };
 export const CLASSIFIEDS_PER_PAGE = 3;

@@ -218,16 +218,10 @@ export const generateTimeOptions = () => {
 	const endHour = 18;
 
 	for (let hour = startHour; hour < endHour; hour++) {
-		const date = new Date();
-		date.setDate(date.getDate() + 1);
-		date.setHours(hour);
-		date.setMinutes(0);
-
-		const formattedTime = date.toLocaleTimeString("en-GB", {
-			hour: "2-digit",
-			minute: "2-digit",
-			hour12: true,
-		});
+		// Use consistent 12-hour format without locale dependency
+		const hour12 = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
+		const ampm = hour >= 12 ? 'pm' : 'am';
+		const formattedTime = `${hour12}:00 ${ampm}`;
 
 		times.push({
 			label: formattedTime,

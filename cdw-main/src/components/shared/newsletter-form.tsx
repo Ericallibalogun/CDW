@@ -24,7 +24,7 @@ const SubscribeButton = () => {
 		<Button
 			disabled={pending}
 			type="submit"
-			className="w-full uppercase font-bold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+			className="w-full uppercase font-bold bg-gradient-to-r from-brand-blue-500 to-brand-blue-600 hover:from-brand-blue-600 hover:to-brand-blue-700 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
 		>
 			{pending && (
 				<Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden="true" />
@@ -79,22 +79,22 @@ export const NewsletterForm = () => {
 	}, [showMessage]);
 
 	return (
-		<div className="space-y-4">
-			<h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-				<div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mr-3"></div>
-				Subscribe to our inventory updates
+		<div className="space-y-6">
+			<h3 className="text-xl font-bold text-white mb-6 flex items-center">
+				<div className="w-1 h-6 bg-gradient-to-b from-brand-blue-400 to-brand-blue-500 rounded-full mr-3"></div>
+				Subscribe to Updates
 			</h3>
-			<p className="text-gray-600 mb-4 font-semibold">
-				Enter your details to receive new stock updates
+			<p className="text-white/70 mb-6 font-medium">
+				Enter your details to receive exclusive inventory updates and premium offers
 			</p>
 			<Form {...form}>
 				<form
 					ref={formRef}
-					className="space-y-3"
+					className="space-y-4"
 					action={handleFormAction}
 					onSubmit={() => null}
 				>
-					<div className="grid grid-cols-2 gap-3">
+					<div className="grid grid-cols-2 gap-4">
 						<FormField
 							control={form.control}
 							name="firstName"
@@ -103,7 +103,7 @@ export const NewsletterForm = () => {
 									<FormControl>
 										<Input
 											placeholder="First Name"
-											className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500"
+											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm"
 											{...field}
 										/>
 									</FormControl>
@@ -119,7 +119,7 @@ export const NewsletterForm = () => {
 									<FormControl>
 										<Input
 											placeholder="Last Name"
-											className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500"
+											className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm"
 											{...field}
 										/>
 									</FormControl>
@@ -135,9 +135,9 @@ export const NewsletterForm = () => {
 							<FormItem>
 								<FormControl>
 									<Input
-										placeholder="Email"
+										placeholder="Email Address"
 										type="email"
-										className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 w-full"
+										className="glass text-white placeholder:text-white/60 border-white/20 focus:border-brand-blue-400 focus:ring-brand-blue-400/50 backdrop-blur-sm w-full"
 										{...field}
 									/>
 								</FormControl>
@@ -148,15 +148,15 @@ export const NewsletterForm = () => {
 					<SubscribeButton />
 
 					{showMessage && state.success && (
-						<div className="flex items-center gap-2 rounded-lg bg-green-600 p-3 text-white animate-in fade-in-0 duration-300">
-							<CircleCheckIcon className="h-5 w-5" />
-							<span>Success! {state.message}</span>
+						<div className="flex items-center gap-3 rounded-xl bg-green-500/20 backdrop-blur-sm border border-green-400/30 p-4 text-green-100 animate-in fade-in-0 duration-300">
+							<CircleCheckIcon className="h-5 w-5 text-green-400" />
+							<span className="font-medium">Success! {state.message}</span>
 						</div>
 					)}
 					{showMessage && !state.success && state.message && (
-						<div className="flex items-center gap-2 rounded-lg bg-red-600 p-3 text-white animate-in fade-in-0 duration-300">
-							<CircleX className="h-5 w-5" />
-							<span>Error! {state.message}</span>
+						<div className="flex items-center gap-3 rounded-xl bg-red-500/20 backdrop-blur-sm border border-red-400/30 p-4 text-red-100 animate-in fade-in-0 duration-300">
+							<CircleX className="h-5 w-5 text-red-400" />
+							<span className="font-medium">Error! {state.message}</span>
 						</div>
 					)}
 				</form>

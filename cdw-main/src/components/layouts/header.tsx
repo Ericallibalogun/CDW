@@ -16,32 +16,37 @@ export const PublicHeader = async () => {
 	const sourceId = await getSourceId();
 	const favourites = await redis.get<Favourites>(sourceId ?? "");
 	return (
-		<header className="flex items-center justify-between h-16 px-4 bg-transparent gap-x-6">
+		<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-20 px-6 glass-header backdrop-blur-xl gap-x-6">
 			<div className="flex items-center flex-1">
-				<Link href={routes.home} className="flex items-center gap-2">
+				<Link href={routes.home} className="flex items-center gap-2 floating-element">
 					<Image
-						width={300}
-						height={100}
+						width={144}
+						height={48}
 						alt="logo"
-						className="relative"
+						className="h-12 w-auto object-contain drop-shadow-lg"
 						src="/mide_logo-removebg-preview.png"
 					/>
 				</Link>
 			</div>
 			<nav className="hidden md:block">
-				{navLinks.map((link) => (
-					<Link
-						className="group font-heading rounded px-3 py-2 text-base text-foreground hover:text-primary duration-300 transition-all ease-in-out font-semibold uppercase"
-						href={link.href}
-						key={link.id}
-					>
-						{link.label}
-					</Link>
-				))}
+				<div className="flex items-center space-x-2">
+					{navLinks.map((link) => (
+						<Link
+							className="group font-heading rounded-xl px-6 py-3 text-sm text-brand-gray-700 hover:text-brand-blue-600 hover:bg-white/20 backdrop-blur-sm duration-300 transition-all ease-in-out font-semibold uppercase tracking-wide border border-transparent hover:border-white/30"
+							href={link.href}
+							key={link.id}
+						>
+							{link.label}
+						</Link>
+					))}
+				</div>
 			</nav>
 			{session ? (
 				<div className="items-center md:flex gap-x-6 hidden">
-					<Link href={routes.admin.dashboard} className="text-foreground">
+					<Link 
+						href={routes.admin.dashboard} 
+						className="text-brand-gray-700 hover:text-brand-blue-600 font-semibold transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm"
+					>
 						Backoffice
 					</Link>
 					<SignOutForm />
@@ -51,14 +56,14 @@ export const PublicHeader = async () => {
 					asChild
 					variant="ghost"
 					size="icon"
-					className="relative inline-block group"
+					className="relative inline-block group hover:bg-brand-red-50/20 backdrop-blur-sm rounded-full"
 				>
 					<Link href={routes.favourites}>
-						<div className="flex group-hover:bg-pink-500 diratopm-200 transition-colors ease-in-out items-center justify-center w-10 h-10 bg-muted rounded-full">
-							<HeartIcon className="w-6 h-6 text-primary group-hover:text-white group-hover:fill-white" />
+						<div className="flex group-hover:bg-brand-red-500 transition-all ease-in-out items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 group-hover:border-brand-red-400">
+							<HeartIcon className="w-6 h-6 text-brand-red-600 group-hover:text-white group-hover:fill-white transition-all duration-300" />
 						</div>
-						<div className="absolute -top-1 5 -right-1.5 flex items-center justify-center w-5 h-5 text-white bg-pink-500 rounded-full group-hover:bg-primary">
-							<span className="text-xs">
+						<div className="absolute -top-1 -right-1 flex items-center justify-center w-6 h-6 text-white bg-gradient-to-r from-brand-red-500 to-brand-red-600 rounded-full group-hover:from-brand-blue-500 group-hover:to-brand-blue-600 transition-all duration-300 shadow-lg">
+							<span className="text-xs font-bold">
 								{favourites ? favourites.ids.length : 0}
 							</span>
 						</div>
@@ -67,16 +72,16 @@ export const PublicHeader = async () => {
 			)}
 			<Sheet>
 				<SheetTrigger asChild>
-					<Button variant="link" size="icon" className="md:hidden border-none">
-						<MenuIcon className="h-6 w-6 text-primary" />
+					<Button variant="ghost" size="icon" className="md:hidden border-none hover:bg-brand-blue-50/20 backdrop-blur-sm rounded-full">
+						<MenuIcon className="h-6 w-6 text-brand-blue-600" />
 						<SheetTitle className="sr-only">Toggle nav menu</SheetTitle>
 					</Button>
 				</SheetTrigger>
-				<SheetContent side="right" className="w-full max-w-xs p-4 bg-white">
-					<nav className="grid gap-2">
+				<SheetContent side="right" className="w-full max-w-xs p-6 glass-card border-l border-white/20">
+					<nav className="grid gap-3 mt-8">
 						{navLinks.map((link) => (
 							<Link
-								className="flex items-center gap-2 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+								className="flex items-center gap-3 py-4 px-6 text-sm font-medium text-brand-gray-700 hover:text-brand-blue-600 hover:bg-white/10 backdrop-blur-sm rounded-xl transition-all duration-200 border border-transparent hover:border-white/20"
 								href={link.href}
 								key={link.id}
 							>
